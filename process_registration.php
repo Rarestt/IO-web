@@ -1,7 +1,6 @@
 <?php
 include 'db_connection.php';
 
-// Pastikan ini adalah permintaan POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $passport_number = $_POST["passport_number"];
     $name = $_POST["name"];
@@ -34,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt->close();
 } else {
-    // Jika bukan POST, kirim pesan error
     http_response_code(405);
     echo json_encode(array("message" => "Method Not Allowed"));
 }
